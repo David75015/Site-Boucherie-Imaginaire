@@ -32,8 +32,15 @@ header {
     background-position: center 50%;
     background-repeat: no-repeat;
     min-height: 100vh;
-    width: 110%;
-    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 20%;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .logo {
@@ -45,67 +52,73 @@ header {
 }
 
 .section1 .logo {
-    position: absolute;
-    margin-top: 17%;
-    margin-left: 20%;
+    margin: 0 0 20px;
 }
 
 .section1 h2 {
-    position: absolute;
-    margin-top: 37.5%;
-    margin-left: 20%;
+    margin: 0 0 15px;
     color: white;
     font-size: 60px;
 }
 
 .section1 p {
-    position: absolute;
-    margin-top: 40.99%;
-    margin-left: 20%;
+    margin: 0;
     color: white;
     font-size: 27px;
 }
 
 .section2 {
     background-color: white;
+    padding: 80px 0 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
 .container0 {
+    width: min(1100px, 90vw);
     text-align: center;
-    margin-bottom: 5vh;
+    margin-bottom: 10px;
 }
 
 .Bienvenue {
     font-size: 12px;
     color: #7E7A6E;
-    margin-left: 2%;
-    margin-top: 10%;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
+    margin: 0 0 12px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    font-weight: 600;
+}
+
+.container0 h2 {
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    margin: 0 0 12px;
+    color: #1f1f1f;
+}
+
+.container0 p {
+    margin: 0;
+    color: #4d4d4d;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 .container1,
 .container2,
 .container3 {
+    width: min(1100px, 90vw);
     position: relative;
     overflow: hidden;
     z-index: 1;
-
     display: flex;
-    gap: 50px;
-
-    margin-bottom: 5vh;
-    padding: 5vh 5vw;
-
+    align-items: center;
+    gap: 60px;
+    padding: 40px 45px;
     background-color: #7E7A6E;
-
+    box-sizing: border-box;
     transition: 0.5s ease;
 }
-
 
 .container1,
 .container3 {
@@ -116,6 +129,13 @@ header {
     flex-direction: row;
 }
 
+.container1 > div,
+.container2 > div,
+.container3 > div {
+    flex: 1;
+    max-width: 560px;
+}
+
 .container1::before,
 .container2::before,
 .container3::before {
@@ -123,42 +143,45 @@ header {
     position: absolute;
     inset: 0;
     background: white;
-
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s ease;
-
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: 0;
 }
 
 .container1:hover::before,
 .container2:hover::before,
 .container3:hover::before {
-    transform: scaleX(1);
+    opacity: 1;
 }
 
-.container1 img,
-.container1 div,
-.container2 img,
-.container2 div,
-.container3 img,
-.container3 div {
+.container1 > img,
+.container1 > div,
+.container2 > img,
+.container2 > div,
+.container3 > img,
+.container3 > div {
     position: relative;
     z-index: 1;
 }
 
+.container1 > div,
+.container2 > div,
+.container3 > div {
+    transition: none;
+}
 
 .section2-img {
     width: 300px;
+    min-width: 300px;
     height: 300px;
     object-fit: cover;
-    transition: 0.5s ease;
+    transition: filter 0.3s ease;
 }
-
 
 .section2 h1 {
     margin: 0 0 15px 0;
-    font-size: 50px;
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    line-height: 1.15;
     color: white;
     transition: 0.5s ease;
 }
@@ -166,6 +189,9 @@ header {
 .section2 p {
     color: white;
     transition: 0.5s ease;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 8px;
 }
 
 .container1 div p:first-child,
@@ -174,6 +200,8 @@ header {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #d9c6a2;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 .container1:hover h1,
@@ -191,7 +219,7 @@ header {
 .container1:hover .section2-img,
 .container2:hover .section2-img,
 .container3:hover .section2-img {
-    transform: scale(1.05);
+    filter: brightness(1.05);
 }
 
 .container1:hover div p:first-child,
@@ -230,8 +258,10 @@ header {
 
 .section-img {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 100px;
+    row-gap: 40px;
 }
 
 .membre {
@@ -261,11 +291,6 @@ header {
 .membre:hover img {
     transform: translateY(-8px);
     filter: brightness(1.1);
-}
-
-.section-txt {
-    text-align: center;
-
 }
 
 .section4 {
@@ -298,21 +323,33 @@ hr {
 }
 
 .section5 {
-    width: 110%;
-    height: 400px;
+    width: 100%;
+    background-color: #f7f3eb;
+    padding: 0;
 }
 
-.carte {
-    width: 550px;
-    height: 400px;
-    position: relative;
-    margin-left: 33%;
+.map-embed {
+    width: 100%;
+    height: 420px;
+    border: 0;
+    display: block;
 }
 
 footer {
     background-color: #7E7A6E;
-    width: 110%;
-    height: 270px
+    width: 100%;
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.footer-txt a {
+    color: white;
+    text-decoration: underline;
 }
 
 .logo-footer {
@@ -321,16 +358,215 @@ footer {
     background-repeat: no-repeat;
     background-size: contain;
     filter: brightness(0) invert(1);
-    margin-left: 40%;
+    margin: 0 0 20px;
 }
 
 .footer-txt {
     color: white;
     font-size: 12px;
-    margin-bottom: 100px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    margin-left: 35.5%;
     font-style: normal;
     text-decoration: underline;
+    margin: 0;
+}
+
+/* ========================================= */
+/*               RESPONSIVE                  */
+/* ========================================= */
+
+/* Supprime le scroll horizontal */
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* ---------- Tablette ---------- */
+
+@media (max-width: 992px) {
+
+    .section1 {
+        min-height: 100vh;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 120px 25px 60px;
+    }
+
+    .section1 .logo {
+        width: 180px;
+        height: auto;
+
+        margin: 0 0 30px;
+    }
+
+    .section1 h2 {
+        margin: 0;
+
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.2;
+
+        max-width: 650px;
+    }
+
+    .section1 p {
+        margin-top: 20px;
+
+        font-size: 1.2rem;
+
+        max-width: 500px;
+    }
+
+    /* Les blocs image + texte passent en colonne pour éviter l'écrasement */
+    .container1,
+    .container2,
+    .container3 {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 30px 25px;
+    }
+
+    .container1 > div,
+    .container2 > div,
+    .container3 > div {
+        max-width: 100%;
+    }
+
+    .section2-img {
+        width: 100%;
+        max-width: 320px;
+        min-width: 0;
+        height: 260px;
+    }
+
+    .section-img {
+        gap: 40px;
+    }
+
+}
+
+
+/* ---------- Téléphone ---------- */
+
+@media (max-width: 768px) {
+
+    header {
+        font-size: 12px;
+    }
+
+    .section1 .logo {
+        width: 140px;
+    }
+
+    .section1 h2 {
+        font-size: 2rem;
+    }
+
+    .section1 p {
+        font-size: 1rem;
+    }
+
+    .container0 h2 {
+        font-size: 30px;
+    }
+
+    .section2 h1 {
+        font-size: 28px;
+    }
+
+    .section2 p {
+        font-size: 15px;
+    }
+
+    .section-txt h2 {
+        font-size: 34px;
+    }
+
+    .section-img {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .membre {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .membre img {
+        width: 170px;
+        height: 220px;
+    }
+
+    .container4 {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .container4 h1 {
+        font-size: 28px;
+    }
+
+    .container4 p {
+        font-size: 16px;
+    }
+
+    .map-embed {
+        height: 300px;
+    }
+
+    footer {
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .footer-txt {
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+
+/* ---------- Très petits téléphones ---------- */
+
+@media (max-width: 480px) {
+
+    .section1 h2 {
+        font-size: 26px;
+    }
+
+    .section1 p {
+        font-size: 16px;
+    }
+
+    .section2 {
+        padding: 50px 15px;
+    }
+
+    .container1,
+    .container2,
+    .container3 {
+        padding: 20px;
+    }
+
+    .section2-img {
+        width: 100%;
+        max-width: 100%;
+        height: 220px;
+    }
+
+    .section-txt h2 {
+        font-size: 28px;
+    }
+
+    .container4 {
+        padding: 20px;
+    }
 }
