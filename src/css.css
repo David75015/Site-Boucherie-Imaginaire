@@ -129,9 +129,9 @@ header {
     flex-direction: row;
 }
 
-.container1 > div,
-.container2 > div,
-.container3 > div {
+.container1>div,
+.container2>div,
+.container3>div {
     flex: 1;
     max-width: 560px;
 }
@@ -154,19 +154,19 @@ header {
     opacity: 1;
 }
 
-.container1 > img,
-.container1 > div,
-.container2 > img,
-.container2 > div,
-.container3 > img,
-.container3 > div {
+.container1>img,
+.container1>div,
+.container2>img,
+.container2>div,
+.container3>img,
+.container3>div {
     position: relative;
     z-index: 1;
 }
 
-.container1 > div,
-.container2 > div,
-.container3 > div {
+.container1>div,
+.container2>div,
+.container3>div {
     transition: none;
 }
 
@@ -298,6 +298,11 @@ header {
     padding: 40px 0;
 }
 
+.section4 .img {
+    width: 50px;
+    height: 50px;
+}
+
 .container4 {
     max-width: 900px;
     width: 100%;
@@ -309,6 +314,15 @@ header {
     padding: 30px 5%;
     color: white;
     box-sizing: border-box;
+}
+
+.container4-img {
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 hr {
@@ -399,9 +413,9 @@ body {
     }
 
     .section1 .logo {
-        width: 180px;
+        width: 260px;
+        /* était 180px */
         height: auto;
-
         margin: 0 0 30px;
     }
 
@@ -432,9 +446,9 @@ body {
         padding: 30px 25px;
     }
 
-    .container1 > div,
-    .container2 > div,
-    .container3 > div {
+    .container1>div,
+    .container2>div,
+    .container3>div {
         max-width: 100%;
     }
 
@@ -451,6 +465,11 @@ body {
 
 }
 
+.container4-img {
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+}
+
 
 /* ---------- Téléphone ---------- */
 
@@ -461,7 +480,8 @@ body {
     }
 
     .section1 .logo {
-        width: 140px;
+        width: 200px;
+        /* était 140px */
     }
 
     .section1 h2 {
@@ -484,30 +504,40 @@ body {
         font-size: 15px;
     }
 
-    .section-txt h2 {
-        font-size: 34px;
-    }
+
 
     .section-img {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 20px;
+        justify-items: center;
+        align-items: start;
     }
 
     .membre {
         width: 100%;
-        max-width: 280px;
+        max-width: 180px;
     }
 
     .membre img {
-        width: 170px;
-        height: 220px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/5;
+        object-fit: cover;
     }
 
     .container4 {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+
+    .container4-img {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+        margin-left: 0;
+        margin-top: 20px;
     }
 
     .container4 h1 {
@@ -533,7 +563,6 @@ body {
     }
 }
 
-
 /* ---------- Très petits téléphones ---------- */
 
 @media (max-width: 480px) {
@@ -544,6 +573,10 @@ body {
 
     .section1 p {
         font-size: 16px;
+    }
+
+    .section1 .logo {
+        width: 160px;
     }
 
     .section2 {
