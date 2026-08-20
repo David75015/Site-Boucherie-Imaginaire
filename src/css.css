@@ -309,20 +309,20 @@ header {
     margin: auto;
     background-color: #7E7A6E;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     padding: 30px 5%;
     color: white;
     box-sizing: border-box;
+    text-spacing-trim: normal;
 }
 
 .container4-img {
-    width: 100%;
-    max-width: 560px;
+    width: 320px;
+    flex-shrink: 0;
     aspect-ratio: 16 / 10;
     object-fit: cover;
     border-radius: 8px;
-    flex-shrink: 0;
 }
 
 hr {
